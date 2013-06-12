@@ -1,7 +1,7 @@
 Reverse Polish Notation (RPN) Calculator
 ===
 
-This is a simple RPN calculator implement using C
+This is a simple RPN calculator written in C
 * There are 20 valid commands, including 6 trigonometric functions
 * Commands are not case-sensitive
 * Both radians and degrees modes are supported
