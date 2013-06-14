@@ -1,12 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////
-//                                             			 	  //
-//                                 RPN                       	  	  //
-//              A simple Reverse Polish Notation calulator        	  //
-//                                           			  	  //
+//                                             			 	              //
+//                                 RPN                       	  	      //
+//              A simple Reverse Polish Notation calulator        	      //
+//                                           			  	              //
 //         Written by Jonathan Cordeiro (http://joncordeiro.com)          //
-//                                            			  	  //
-//         June 11th, 2013                                  		  //
-//                                              		 	  //
+//                                                                        //
+//         June 11th, 2013                                  		      //
+//                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
@@ -173,8 +173,22 @@ float performOperation (float operand1, float operand2, char * operation) {
         result = expf(operand1);
         push(operand2);
     } else if ( isEqual(operation, "sq") ) {
-        result = sqrtf(operand1);
+        
+        
+        // Computing the square root of a negative number
+        // results in an error
+        // the operand is returned and pushed back onto the stack
+        
+        if (operand1 >= 0) {
+            result = sqrtf(operand1);
+        } else {
+            printf("You cannot take the square root of a negative number\n\n");
+            result = operand1;
+        }
+        
+        
         push(operand2);
+        
     } else if ( isEqual(operation, "log10") ) {
         result = log10f(operand1);
         push(operand2);
