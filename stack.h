@@ -1,12 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////
-//                                             			 			 	  //
-//                                 RPN                       	  		  //
-//              A simple Reverse Polish Notation calulator        		  //
-//                                           			  				  //
+//                                             			 	  //
+//                                 RPN                       	  	  //
+//              A simple Reverse Polish Notation calulator        	  //
+//                                           			  	  //
 //         Written by Jonathan Cordeiro (http://joncordeiro.com)          //
-//                                            			  				  //
-//         June 11th, 2013                                  			  //
-//                                              		 				  //
+//                                            			  	  //
+//         June 11th, 2013                                  		  //
+//                                              		 	  //
 ////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
