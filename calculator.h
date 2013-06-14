@@ -178,7 +178,6 @@ float performOperation (float operand1, float operand2, char * operation) {
         // Computing the square root of a negative number
         // results in an error
         // the operand is returned and pushed back onto the stack
-        
         if (operand1 >= 0) {
             result = sqrtf(operand1);
         } else {
