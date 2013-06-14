@@ -16,6 +16,8 @@
 
 #define RADIANS "radians"
 #define DEGREES "degrees"
+#define CONVERT_TO_RADIANS(r) r * (180/ M_PI);
+#define CONVERT_TO_DEGREES(d) d * (M_PI / 180.0);
 char * mode = RADIANS; // Radians is the default calculator mode
 
 void printCommands();
@@ -190,7 +192,7 @@ float performTrigFunction(float operand, char *op) {
     // not an inverse function, the operand must be converted
     // before the operation
     if (!isInverseTrigFunction(op) && mode == DEGREES) {
-        operand = operand * (M_PI / 180.0);
+        operand = CONVERT_TO_DEGREES(operand);
     }
     
     // If the operand isn't valid for ASIN or ACOS
@@ -230,7 +232,7 @@ float performTrigFunction(float operand, char *op) {
     // If the calculator is in degrees mode and the operation is
     // an inverse function, the answer must be converted after the operation
     if (isInverseTrigFunction(op) && mode == DEGREES) {
-        result = result * (180.0 / M_PI);
+        result = CONVERT_TO_RADIANS(result);
     }
     
     return result;
