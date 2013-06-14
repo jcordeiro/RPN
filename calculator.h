@@ -177,7 +177,7 @@ float performOperation (float operand1, float operand2, char * operation) {
         
         // Computing the square root of a negative number
         // results in an error
-        // the operand is returned and pushed back onto the stack
+        // The operand is returned and pushed back onto the stack
         if (operand1 >= 0) {
             result = sqrtf(operand1);
         } else {
@@ -189,7 +189,20 @@ float performOperation (float operand1, float operand2, char * operation) {
         push(operand2);
         
     } else if ( isEqual(operation, "log10") ) {
-        result = log10f(operand1);
+        
+        // Computer the natural logarithm of a negative number
+        // results in an error
+        // The operand is returned and pushed back onto the stack
+        
+        
+        if (operand1 >= 0) {
+            result = log10f(operand1);
+        } else {
+            printf("You cannot take the natural log of a negative numver\n\n");
+            result = operand1;
+        }
+        
+
         push(operand2);
     }
     
