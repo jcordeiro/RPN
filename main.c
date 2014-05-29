@@ -19,7 +19,7 @@
 #define BUFF_SIZE 25
 
 int main(int argc, const char * argv[]) {
-    
+
     char in[BUFF_SIZE];
     printf("*********** Reverse Polish Notation Calculator ***********\n");
     printf("You may enter \"quit\" to terminate this program at any time\n");
@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
     printf("Note: Any invalid input will be treated as the number 0\n");
     printf("The following commands are available: \n\n");
     printCommands();
-    
+
     // Loops indefinitely
     // The user can exit the program by entering the "QUIT" command
     do {
@@ -35,21 +35,21 @@ int main(int argc, const char * argv[]) {
         printf("Current Mode: %s \nEnter and operator or an operand: ", mode);
         fgets(in, BUFF_SIZE, stdin);
         in[strlen(in)-1]='\0'; // Add null character to end of string
-        
+
         if (!isCommand(in)) {
-            
+
             // if input is not a command or operation, it must be a number
             // push this number onto the stack
             if (!isOperator(in)) {
                 push(atof(in));
             } else {
-                
+
                 // Perform the mathematical operation, if the stack is not empty
                 // Push the result onto the stack
                 if (!stakempt()) {
-                    
+
                     float result = 0;
-                    
+
                     // Checks if the operation needs 1 or 2 operands
                     // If only one operand is needed, then '0' is passed in for the other
                     // if there is only 1 operand on the stack
@@ -58,7 +58,7 @@ int main(int argc, const char * argv[]) {
                         result = performOperation(pop(), 0, in);
                         push(result);
                     } else {
-                        
+
                         // Only perform the operation if there are at least
                         // 2 operands on the stack
                         if (stakptr > 1) {
@@ -67,18 +67,18 @@ int main(int argc, const char * argv[]) {
                         } else {
                             printf("There are not enough operands in the stack for that operation\n\n");   }
                     }
-                    
+
                 } else {
                     printf("There is nothing on the stack. Please enter some operands\n\n");
                 }
             }
-            
+
         } else {
             performCommand(in);
         }
-        
+
     } while (1);
-    
+
     return 0;
 }
 
@@ -96,7 +96,6 @@ void printCommands() {
     printf("Exponent (a^b):  ^ \t    Exponential (e^x): \t  E \n");
     printf("Square Root: \t SQ     Nautral Logarithm: \t  LOG10 \n");
     printf("Print stack: \t STACK  Quit program: \t\t  QUIT \n\n");
-    
 }
 
 
